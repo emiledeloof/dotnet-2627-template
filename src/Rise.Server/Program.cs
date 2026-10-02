@@ -18,6 +18,7 @@ Log.Logger = new LoggerConfiguration()
 
 try
 {
+    Log.Information("Testing to see if it automatically deploys app")
     Log.Information("Starting web application");
     var builder = WebApplication.CreateBuilder(args);
 
