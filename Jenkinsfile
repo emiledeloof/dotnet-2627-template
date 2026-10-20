@@ -1,6 +1,11 @@
 pipeline {
     agent any
 
+    triggers {
+        githubPush()
+        pollSCM('H/5 * * * *')
+    }
+
     environment {
         DOTNET_ROOT = "${WORKSPACE}/.dotnet"
         PATH        = "${WORKSPACE}/.dotnet:${env.PATH}"
@@ -15,7 +20,7 @@ pipeline {
     stages {
         stage("Checkout") {
             steps {
-                git branch: 'main', url: 'https://github.com/HOGENT-RISE/dotnet-2627-template.git'
+                git branch: 'main', url: 'https://github.com/emiledeloof/dotnet-2627-template.git'
             }
         }
 
